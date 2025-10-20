@@ -1,5 +1,6 @@
 package org.example.mydbcontroller.service;
 
+import io.jsonwebtoken.Claims;
 import org.example.mydbcontroller.config.jwt.JwtUtil;
 import org.example.mydbcontroller.model.dto.LoginRequest;
 import org.example.mydbcontroller.model.dto.LoginResponse;
@@ -25,35 +26,38 @@ public class AuthUserService {
     }
 
     public LoginResponse login(LoginRequest request){
-        AuthUser authUser = repository.findByUsernameAndDeletedIsFalse(request.getUsername()).
+        AuthUser authUser = repository.findByUsernameAndDeletedFalse(request.getUsername()).
                 orElseThrow(
                         () -> new BadCredentialsException("Bad credentials")
                 );
         if(!passwordEncoder.matches(request.getPassword(), authUser.getPassword())){
             throw new BadCredentialsException("Bad credentials");
         }
-        TokenDto dto = jwtUtil.generateAccessToken(authUser);
+        TokenDto accessToken = jwtUtil.generateAccessToken(authUser);
+        TokenDto refreshToken = jwtUtil.generateRefreshToken(authUser);
+
         return LoginResponse.builder()
-                .accessToken(dto.getToken())
-                .accessTokenExpiration(dto.getExpiry())
+                .accessToken(accessToken.getToken())
+                .accessTokenExpiration(accessToken.getExpiry())
+                .refreshToken(refreshToken.getToken())
+                .refreshTokenExpiration(refreshToken.getExpiry())
                 .build();
 
     }
 
+    public LoginResponse refreshToken(String refreshToken){
+        Claims claims = jwtUtil.validateTokenAndExtract("Bearer " + refreshToken);
+        String username = claims.getSubject();
+        AuthUser authUser = repository.findByUsernameAndDeletedFalse(username).orElseThrow(
+                () -> new BadCredentialsException("Bad credentials")
+        );
+        TokenDto accessToken = jwtUtil.generateAccessToken(authUser);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-}
+        return LoginResponse.builder()
+                .accessToken(accessToken.getToken())
+                .accessTokenExpiration(accessToken.getExpiry())
+                .refreshToken(refreshToken)
+                .refreshTokenExpiration(claims.getExpiration())
+                .build();
+    }
+    }

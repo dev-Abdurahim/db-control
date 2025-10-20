@@ -10,6 +10,7 @@ import lombok.RequiredArgsConstructor;
 import org.example.mydbcontroller.config.jwt.JwtUtil;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
@@ -28,15 +29,13 @@ public class JwtFilter extends OncePerRequestFilter {
 
         if (request.getHeader("Authorization") != null){
             String token = request.getHeader("Authorization");
-            if(token.startsWith("Bearer ")){
-                token = token.substring(7);
-                Claims claims = jwtUtil.extractClaims(token);
-
-                String username = claims.getSubject();
-                Authentication authentication = new UsernamePasswordAuthenticationToken(username, null, Collections.emptyList());
-                    SecurityContextHolder.getContext().setAuthentication(authentication);
-                }
+            Claims claims = jwtUtil.validateTokenAndExtract(token);
+            String username = claims.getSubject();
+            Authentication authentication = new UsernamePasswordAuthenticationToken(username,null, Collections.emptyList());
+            SecurityContext context = SecurityContextHolder.getContext();
+            context.setAuthentication(authentication);
             }
+
         filterChain.doFilter(request,response);
         }
 }
