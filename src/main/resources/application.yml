@@ -1,0 +1,18 @@
+spring:
+  datasource:
+    username: postgres
+    password: hobbi9900
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/my_db_control
+
+  security:
+    user:
+      password: 123
+      name: admin
+
+  jpa:
+      hibernate:
+        ddl-auto: update # default none
+      show-sql: true
+server:
+  port: 8081

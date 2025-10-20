@@ -1,0 +1,18 @@
+package org.example.mydbcontroller.model.entity;
+
+import jakarta.persistence.Entity;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import org.example.mydbcontroller.model.base.IdEntity;
+
+@Entity
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+public class AuthPermission extends IdEntity{
+    private String name;
+    private String code;
+}
