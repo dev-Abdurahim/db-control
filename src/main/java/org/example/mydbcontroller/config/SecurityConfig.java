@@ -19,6 +19,17 @@ import java.util.List;
 @Component
 @EnableWebSecurity
 public class SecurityConfig {
+
+    private static final String[] WHITE_LIST = new String[]{
+            "/api/v1/auth/login",
+            "/api/v1/auth/refresh-token",
+            "/swagger-ui/**",
+            "/swagger-ui.html",
+            "/v3/api-docs/**",
+            "/swagger-resources",
+            "/sw"
+    };
+
     private final JwtFilter jwtFilter;
     private final CorsConfigurationSource corsConfigurationSource;
 
@@ -33,7 +44,7 @@ public class SecurityConfig {
         http.csrf(AbstractHttpConfigurer:: disable)
                 .cors(corsConfigurer -> corsConfigurer.configurationSource(corsConfigurationSource))
                 .authorizeHttpRequests(authorizeRequests -> {
-                    authorizeRequests.requestMatchers("/api/v1/auth/login")
+                  authorizeRequests.requestMatchers(WHITE_LIST)
                             .permitAll()
                             .anyRequest()
                             .authenticated();
