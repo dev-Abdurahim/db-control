@@ -1,16 +1,14 @@
 package org.example.mydbcontroller.dto.projectagent;
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
-@Getter
-@Setter
-@Builder
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class ProjectAgentCreateDto {
     private String name;
-    private String databaseUsername;
-    private String databasePassword;
+    private String username;
+    private String password;
     private String databaseUrl;
     private String callbackUrl;
 }

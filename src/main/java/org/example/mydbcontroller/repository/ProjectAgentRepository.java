@@ -7,5 +7,5 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 @Repository
 public interface ProjectAgentRepository extends JpaRepository<ProjectAgent,String> {
-    Optional<ProjectAgent> findByCallbackUrl(String callbackUrl);
+
 }

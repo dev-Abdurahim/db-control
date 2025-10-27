@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.example.mydbcontroller.dto.projectdatabaseuser.ProjectDatabaseUserCreateDto;
+import org.example.mydbcontroller.dto.projectdatabaseuser.ProjectDatabaseUserDto;
 
 import java.util.List;
 
@@ -17,5 +17,5 @@ public class ProjectDatabaseDto {
     private String name;
     private String description;
     private String agentId;
-    private List<ProjectDatabaseUserCreateDto> members;
+    private List<ProjectDatabaseUserDto> members;
 }

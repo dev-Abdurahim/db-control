@@ -1,11 +1,10 @@
 package org.example.mydbcontroller.dto.projectagent;
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
-@Setter
-@Getter
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Builder
 public class ProjectAgentDto {
     private String id;
