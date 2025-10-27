@@ -1,7 +1,7 @@
 package org.example.mydbcontroller.controller;
 
-import org.example.mydbcontroller.dto.ProjectDatabaseCreateDto;
-import org.example.mydbcontroller.dto.ProjectDatabaseDto;
+import org.example.mydbcontroller.dto.projectdatabase.ProjectDatabaseCreateDto;
+import org.example.mydbcontroller.dto.projectdatabase.ProjectDatabaseDto;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

@@ -1,8 +1,8 @@
 package org.example.mydbcontroller.mapper;
 
-import org.example.mydbcontroller.dto.ProjectAgentCreateDto;
-import org.example.mydbcontroller.dto.ProjectAgentDto;
-import org.example.mydbcontroller.dto.ProjectAgentUpdateDto;
+import org.example.mydbcontroller.dto.projectagent.ProjectAgentCreateDto;
+import org.example.mydbcontroller.dto.projectagent.ProjectAgentDto;
+import org.example.mydbcontroller.dto.projectagent.ProjectAgentUpdateDto;
 import org.example.mydbcontroller.model.entity.ProjectAgent;
 import org.example.mydbcontroller.utils.Utils;
 import org.springframework.stereotype.Component;

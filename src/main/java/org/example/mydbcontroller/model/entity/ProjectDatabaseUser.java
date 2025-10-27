@@ -32,5 +32,6 @@ public class ProjectDatabaseUser extends BaseEntity {
             inverseJoinColumns = @JoinColumn(name = "database_role_id")
 
     )
-    private List<DatabaseRole> role;
+    private List<DatabaseRole> roles;
+    private Integer version;
 }

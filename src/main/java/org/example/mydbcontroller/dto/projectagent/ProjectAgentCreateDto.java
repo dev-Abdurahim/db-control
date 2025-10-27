@@ -1,4 +1,4 @@
-package org.example.mydbcontroller.dto;
+package org.example.mydbcontroller.dto.projectagent;
 
 import lombok.Builder;
 import lombok.Getter;
@@ -6,7 +6,9 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class ProjectAgentUpdateDto {
+@Builder
+public class ProjectAgentCreateDto {
+    private String name;
     private String databaseUsername;
     private String databasePassword;
     private String databaseUrl;

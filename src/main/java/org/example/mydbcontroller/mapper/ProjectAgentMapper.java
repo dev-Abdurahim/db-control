@@ -1,6 +1,6 @@
 package org.example.mydbcontroller.mapper;
 
-import org.example.mydbcontroller.dto.ProjectAgentCreateDto;
+import org.example.mydbcontroller.dto.projectagent.ProjectAgentCreateDto;
 import org.example.mydbcontroller.model.entity.ProjectAgent;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;

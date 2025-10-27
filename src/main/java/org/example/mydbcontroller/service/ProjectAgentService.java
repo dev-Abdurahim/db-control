@@ -2,9 +2,9 @@ package org.example.mydbcontroller.service;
 
 import org.example.mydbcontroller.criteria.BaseCriteria;
 import org.example.mydbcontroller.mapper.ProjectAgentMapper;
-import org.example.mydbcontroller.dto.ProjectAgentCreateDto;
-import org.example.mydbcontroller.dto.ProjectAgentDto;
-import org.example.mydbcontroller.dto.ProjectAgentUpdateDto;
+import org.example.mydbcontroller.dto.projectagent.ProjectAgentCreateDto;
+import org.example.mydbcontroller.dto.projectagent.ProjectAgentDto;
+import org.example.mydbcontroller.dto.projectagent.ProjectAgentUpdateDto;
 import org.example.mydbcontroller.mapper.ProjectAgentMapperOld;
 import org.example.mydbcontroller.model.entity.ProjectAgent;
 import org.example.mydbcontroller.repository.ProjectAgentRepository;

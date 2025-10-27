@@ -1,8 +1,8 @@
 package org.example.mydbcontroller.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.example.mydbcontroller.dto.ProjectAgentCreateDto;
-import org.example.mydbcontroller.dto.ProjectAgentDto;
+import org.example.mydbcontroller.dto.projectagent.ProjectAgentCreateDto;
+import org.example.mydbcontroller.dto.projectagent.ProjectAgentDto;
 import org.example.mydbcontroller.service.ProjectAgentService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
