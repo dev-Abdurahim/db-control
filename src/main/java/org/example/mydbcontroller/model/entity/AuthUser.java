@@ -17,6 +17,7 @@ import org.example.mydbcontroller.model.base.BaseEntity;
 @NoArgsConstructor
 @AllArgsConstructor
 public class AuthUser extends BaseEntity {
+    private String name;
     private String username;
     private String password;
     private String dbUsername;

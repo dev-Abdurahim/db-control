@@ -24,7 +24,6 @@ import org.springframework.web.filter.OncePerRequestFilter;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 @Component
@@ -41,7 +40,7 @@ public class JwtFilter extends OncePerRequestFilter {
             String token = request.getHeader("Authorization");
             Claims claims = jwtUtil.validateTokenAndExtract(token);
             String username = claims.getSubject();
-            AuthUser authUser = authUserRepository.findByUsernameAndDeletedFalse(username).orElseThrow(
+            AuthUser authUser = authUserRepository.findByUsername(username).orElseThrow(
                     () -> new BadCredentialsException("Invalid username or password")
             );
             List<GrantedAuthority> authorities = prepareAuthorities(authUser);

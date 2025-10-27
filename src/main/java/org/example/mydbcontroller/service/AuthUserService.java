@@ -26,7 +26,7 @@ public class AuthUserService {
     }
 
     public LoginResponse login(LoginRequest request){
-        AuthUser authUser = repository.findByUsernameAndDeletedFalse(request.getUsername()).
+        AuthUser authUser = repository.findByUsername(request.getUsername()).
                 orElseThrow(
                         () -> new BadCredentialsException("Bad credentials")
                 );
@@ -48,7 +48,7 @@ public class AuthUserService {
     public LoginResponse refreshToken(String refreshToken){
         Claims claims = jwtUtil.validateTokenAndExtract("Bearer " + refreshToken);
         String username = claims.getSubject();
-        AuthUser authUser = repository.findByUsernameAndDeletedFalse(username).orElseThrow(
+        AuthUser authUser = repository.findByUsername(username).orElseThrow(
                 () -> new BadCredentialsException("Bad credentials")
         );
         TokenDto accessToken = jwtUtil.generateAccessToken(authUser);
