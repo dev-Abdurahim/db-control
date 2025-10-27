@@ -15,7 +15,7 @@ import java.util.List;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-public class AuthRole extends IdEntity {
+public class AuthRole extends IdEntity { // Bu class foydalanuvchining ruxsat darajasi (rolini) bildiradi.
     private String name;
     private String code;
 

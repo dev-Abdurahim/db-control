@@ -14,6 +14,7 @@ import java.util.List;
 @AllArgsConstructor
 @Getter
 @Setter
+//Bu jadval qaysi foydalanuvchi qaysi bazaga ulanganini bildiradi.
 public class ProjectDatabaseUser extends BaseEntity {
 
     @ManyToOne

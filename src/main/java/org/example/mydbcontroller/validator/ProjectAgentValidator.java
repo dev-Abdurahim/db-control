@@ -1,8 +1,7 @@
 package org.example.mydbcontroller.validator;
 
 import lombok.RequiredArgsConstructor;
-import org.example.mydbcontroller.model.dto.ProjectAgentCreateDto;
-import org.example.mydbcontroller.model.dto.ProjectAgentDto;
+import org.example.mydbcontroller.dto.ProjectAgentCreateDto;
 import org.example.mydbcontroller.model.entity.ProjectAgent;
 import org.example.mydbcontroller.repository.ProjectAgentRepository;
 import org.springframework.stereotype.Component;

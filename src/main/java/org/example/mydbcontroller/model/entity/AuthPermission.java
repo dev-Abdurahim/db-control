@@ -12,6 +12,7 @@ import org.example.mydbcontroller.model.base.IdEntity;
 @NoArgsConstructor
 @Getter
 @Setter
+// AuthPermission — bu ruxsat (permission), ya’ni tizimda bajariladigan amallarni bildiradi.
 public class AuthPermission extends IdEntity{
     private String name;
     private String code;

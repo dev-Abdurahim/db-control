@@ -1,5 +1,8 @@
 package org.example.mydbcontroller.controller;
 
+import org.example.mydbcontroller.dto.ProjectDatabaseCreateDto;
+import org.example.mydbcontroller.dto.ProjectDatabaseDto;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -11,5 +14,8 @@ public class ProjectDatabaseController {
     @GetMapping("/test")
     public String test(){
         return "Hello world";
+    }
+    public ResponseEntity<ProjectDatabaseDto> create(ProjectDatabaseCreateDto dto) {
+        return null;
     }
 }

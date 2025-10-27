@@ -1,4 +1,4 @@
-package org.example.mydbcontroller.model.dto;
+package org.example.mydbcontroller.dto;
 
 import lombok.Builder;
 import lombok.Data;

@@ -2,9 +2,9 @@ package org.example.mydbcontroller.service;
 
 import io.jsonwebtoken.Claims;
 import org.example.mydbcontroller.config.jwt.JwtUtil;
-import org.example.mydbcontroller.model.dto.LoginRequest;
-import org.example.mydbcontroller.model.dto.LoginResponse;
-import org.example.mydbcontroller.model.dto.TokenDto;
+import org.example.mydbcontroller.dto.LoginRequest;
+import org.example.mydbcontroller.dto.LoginResponse;
+import org.example.mydbcontroller.dto.TokenDto;
 import org.example.mydbcontroller.model.entity.AuthUser;
 import org.example.mydbcontroller.repository.AuthUserRepository;
 import org.springframework.security.authentication.BadCredentialsException;

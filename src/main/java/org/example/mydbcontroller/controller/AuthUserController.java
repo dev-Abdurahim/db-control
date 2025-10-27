@@ -1,8 +1,8 @@
 package org.example.mydbcontroller.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.example.mydbcontroller.model.dto.LoginRequest;
-import org.example.mydbcontroller.model.dto.LoginResponse;
+import org.example.mydbcontroller.dto.LoginRequest;
+import org.example.mydbcontroller.dto.LoginResponse;
 import org.example.mydbcontroller.service.AuthUserService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

@@ -3,12 +3,11 @@ package org.example.mydbcontroller.config.jwt;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
-import org.example.mydbcontroller.model.dto.TokenDto;
+import org.example.mydbcontroller.dto.TokenDto;
 import org.example.mydbcontroller.model.entity.AuthUser;
 import org.springframework.stereotype.Component;
 
 import javax.crypto.SecretKey;
-import javax.xml.crypto.Data;
 import java.util.Date;
 import java.util.Map;
 
@@ -16,7 +15,7 @@ import java.util.Map;
 public class JwtUtil {
 
     public TokenDto generateRefreshToken(AuthUser authUser){
-        Date tokenExpire = new Date(System.currentTimeMillis() + 3600 * 24 * 1000);
+        Date tokenExpire = new Date(System.currentTimeMillis() + 3600 * 48 * 1000);
         String token = Jwts.builder()
                 .signWith(getSecretKey())
                 .issuedAt(new Date())
@@ -31,7 +30,7 @@ public class JwtUtil {
     }
 
     public TokenDto generateAccessToken(AuthUser authUser){
-        Date tokenExpire = new Date(System.currentTimeMillis() + 20 * 1000);
+        Date tokenExpire = new Date(System.currentTimeMillis() + 3600 * 24 * 1000);
         String token = Jwts.builder()
                 .signWith(getSecretKey())
                 .issuedAt(new Date())
@@ -62,11 +61,11 @@ public class JwtUtil {
 
 
     // Claims — bu JWT tokenning ichidagi ma’lumotlar (payload)ni ifodalovchi interface.
-    public Claims extractClaims(String refreshToken){
+    public Claims extractClaims(String token){
         return Jwts.parser()
                 .verifyWith(getSecretKey())
                 .build()
-                .parseSignedClaims(refreshToken)
+                .parseSignedClaims(token)
                 .getPayload();
     }
     public SecretKey getSecretKey() {

@@ -2,9 +2,10 @@ package org.example.mydbcontroller.service;
 
 import org.example.mydbcontroller.criteria.BaseCriteria;
 import org.example.mydbcontroller.mapper.ProjectAgentMapper;
-import org.example.mydbcontroller.model.dto.ProjectAgentCreateDto;
-import org.example.mydbcontroller.model.dto.ProjectAgentDto;
-import org.example.mydbcontroller.model.dto.ProjectAgentUpdateDto;
+import org.example.mydbcontroller.dto.ProjectAgentCreateDto;
+import org.example.mydbcontroller.dto.ProjectAgentDto;
+import org.example.mydbcontroller.dto.ProjectAgentUpdateDto;
+import org.example.mydbcontroller.mapper.ProjectAgentMapperOld;
 import org.example.mydbcontroller.model.entity.ProjectAgent;
 import org.example.mydbcontroller.repository.ProjectAgentRepository;
 import org.example.mydbcontroller.service.base.AbstractService;
@@ -15,10 +16,10 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class ProjectAgentService extends AbstractService<ProjectAgentRepository, ProjectAgentMapper,ProjectAgentValidator>
+public class ProjectAgentService extends AbstractService<ProjectAgentRepository, ProjectAgentMapperOld,ProjectAgentValidator>
         implements CrudService<ProjectAgentDto, ProjectAgentCreateDto, ProjectAgentUpdateDto, BaseCriteria,String> {
 
-    protected ProjectAgentService(ProjectAgentRepository repository, ProjectAgentMapper mapper, ProjectAgentValidator validator) {
+    protected ProjectAgentService(ProjectAgentRepository repository, ProjectAgentMapperOld mapper, ProjectAgentValidator validator) {
         super(repository, mapper, validator);
     }
 
@@ -26,7 +27,8 @@ public class ProjectAgentService extends AbstractService<ProjectAgentRepository,
     @Override
     public ProjectAgentDto create(ProjectAgentCreateDto dto) {
         validator.validateOnCreate(dto);
-        ProjectAgent projectAgent = mapper.fromDto(dto);
+//        ProjectAgent projectAgent = mapper.fromDto(dto);
+        ProjectAgent projectAgent = ProjectAgentMapper.INSTANCE.fromDto(dto);
         return mapper.toDto(repository.save(projectAgent));
     }
 
